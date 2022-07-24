@@ -9,7 +9,7 @@ function Invoke-PrepareScheduledTask
 
     # TODO: EDIT THIS STUFF AS NEEDED...
     $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-File "C:\Users\jboul\code\RestartNetAdapterScript\Restart-NetAdapter.ps1"'
-    $trigger = New-ScheduledTaskTrigger -AtStartup
+    $trigger = New-ScheduledTaskTrigger -AtStartup -RandomDelay 00:00:30
     $settings = New-ScheduledTaskSettingsSet -Compatibility Win8
 
     $principal = New-ScheduledTaskPrincipal -UserId SYSTEM -LogonType ServiceAccount -RunLevel Highest
